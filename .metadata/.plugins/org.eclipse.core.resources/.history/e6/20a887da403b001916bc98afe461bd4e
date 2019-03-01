@@ -1,0 +1,19 @@
+package com.qa.runner;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.qa.cucumberPages.Constants;
+
+import cucumber.api.java.Before;
+
+public class ParametisationStepDefinition {
+	ChromeDriver driver;
+	Constants constant;
+	@Before
+	public void setUp() {
+		constant= new Constants();
+		System.setProperty(constant.getDriverType(),constant.getDriverLocation());
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+	}
+}

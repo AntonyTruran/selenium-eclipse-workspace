@@ -1,0 +1,37 @@
+package com.qa.blackjackTests;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import com.qa.blackjack.CardGeneration;
+import com.qa.blackjack.Game;
+
+import junit.framework.TestCase;
+
+public class mainTests extends TestCase{
+	CardGeneration card;
+	Game game;
+	@Before
+	public void setUp() {
+		card = new CardGeneration();
+		game = new Game();
+	}
+	@Test
+	public void testBust() {
+		assertEquals("both bust",0,game.winner(22,21));
+	}
+	@Test
+	public void testValid() {
+		assertEquals("invalid number received",-1,card.validCheck(3));
+		assertEquals("invalid number received",-1,card.validCheck(32));
+		assertEquals("invalid number received",-1,card.validCheck(30));
+	}
+	@Test
+	public void testWinner() {
+		assertEquals(17,game.winner(17,12));
+		assertEquals(16,game.winner(12,16));
+		assertEquals(16,game.winner(16,23));
+		assertEquals(12,game.winner(24,12));
+	}
+
+}

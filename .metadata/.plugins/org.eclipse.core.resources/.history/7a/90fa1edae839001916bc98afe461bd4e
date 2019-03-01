@@ -1,0 +1,22 @@
+package com.qa.shafiqTest;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+public class GithubPage {
+	
+	@FindBy(id="quote")
+	private WebElement shafeeqQuote;
+	@FindBy(tagName="<img>")
+	private WebElement logo;
+	
+	WebElement dynamicWait=(new WebDriverWait(driver,10)).until(ExpectedConditions.presenceOfElementLocated(By.tagName("img")));
+	
+	public String logo(ChromeDriver driver) {
+		return logo.getTagName();
+	}
+
+}

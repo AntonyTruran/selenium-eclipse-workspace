@@ -1,0 +1,17 @@
+package com.qa.blackjack;
+
+public class Game {
+	
+	public void game() {
+		int playerHand =0;
+		int dealerHand = 0;
+		//call card for each player
+		
+	}
+
+	public int winner(int playerHand, int dealerHand) {
+		int winningNumber = 0;
+		return winningNumber;
+	}
+
+}

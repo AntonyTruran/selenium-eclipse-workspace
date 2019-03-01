@@ -1,0 +1,5 @@
+package com.qa.cucumberPages;
+
+public class Constants {
+
+}

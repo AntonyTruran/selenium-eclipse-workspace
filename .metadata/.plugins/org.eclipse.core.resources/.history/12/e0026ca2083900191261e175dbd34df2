@@ -1,0 +1,10 @@
+package com.qa.blackjack;
+
+public class CardGeneration {
+
+	public int validCheck(int handNumber) {
+		
+		return handNumber;
+	}
+
+}

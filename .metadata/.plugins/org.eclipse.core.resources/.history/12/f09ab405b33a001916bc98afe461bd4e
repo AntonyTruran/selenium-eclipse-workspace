@@ -1,0 +1,11 @@
+package com.qa.cucumberPages;
+
+public class Constants {
+	private static final String WEBPAGE ="http://www.practiceselenium.com/welcome.html";
+	private static final String MENUE ="http://www.practiceselenium.com/menu.html";
+	private static final String CHECKOUT = "http://www.practiceselenium.com/check-out.html";
+
+	public String getWebpage() {
+		return WEBPAGE;
+	}
+}

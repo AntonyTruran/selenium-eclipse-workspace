@@ -1,0 +1,81 @@
+package com.qa.excelTests;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collection;
+
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.qa.excelReader.Constants;
+
+@RunWith(Parameterized.class)
+public class ExcelParameterTest {
+	static Constants constant;
+	private static FileInputStream file;
+	private static XSSFWorkbook workbook;
+	private static XSSFSheet sheet;
+	private ChromeDriver driver;
+
+	@Parameters
+	public static Collection<Object[]> rowList() throws IOException {
+		constant = new Constants();
+		file = new FileInputStream(constant.getFileLocation());
+		workbook = new XSSFWorkbook(file);
+		sheet = workbook.getSheetAt(0);
+		Object[][] excelCell = new Object[sheet.getPhysicalNumberOfRows() - 1][4];
+		for (int rowNum = 1; rowNum < sheet.getPhysicalNumberOfRows(); rowNum++) {
+			excelCell[rowNum - 1][0] = sheet.getRow(rowNum).getCell(0).getStringCellValue();
+			excelCell[rowNum - 1][1] = sheet.getRow(rowNum).getCell(1).getStringCellValue();
+			excelCell[rowNum - 1][2] = sheet.getRow(rowNum).getCell(2).getStringCellValue();
+			excelCell[rowNum - 1][3] = rowNum;
+		}
+		workbook.close();
+		return Arrays.asList(excelCell);
+	}
+	// sheet = workbook.getSheetAt(0);
+	// for (int rowNum = 0; rowNum < ; rowNum++) {
+	// for (int colNum = 0; colNum <
+	// sheet.getRow(rowNum).getPhysicalNumberOfCells(); colNum++) {
+	// XSSFCell cell = sheet.getRow(rowNum).getCell(colNum);
+	// String userCell = cell.getStringCellValue();
+	// System.out.println(userCell);
+	// }
+	// }
+
+	private int username;
+	private int password;
+	private int expectedLoginResult;
+	private int rowNumber;
+
+
+	public ExcelParameterTest(int username, int password, int expectedLoginResult, int rowNumber) {
+		this.username = username;
+		this.password = password;
+		this.expectedLoginResult = expectedLoginResult;
+		this.rowNumber = rowNumber;
+	}
+
+	@Before
+	public void setup() {
+		System.setProperty("webdriver.chrome.driver", constant.getDriverLocation());
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+	}
+
+	@Test
+	public void login(){
+		driver.get(constant.getWebpage());
+
+		System.out.println(username + " " + password + " " + expectedLoginResult);
+	}
+}

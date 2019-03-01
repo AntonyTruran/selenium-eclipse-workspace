@@ -1,0 +1,25 @@
+package com.qa.excelTests;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ExcelTests {
+	ChromeDriver driver;
+	@Before
+	public void setUp() {
+	System.setProperty("webdriver.chrome.driver","C:\\Users\\Admin\\Desktop\\chromedriver.exe\\");
+	driver.manage().window().maximize();
+	driver.get("http://thedemosite.co.uk/");
+	}
+	@After
+	public void tearDown() {
+		driver.quit();
+	}
+	@Test
+	public void readFromExcel() {
+		
+	}
+	
+}

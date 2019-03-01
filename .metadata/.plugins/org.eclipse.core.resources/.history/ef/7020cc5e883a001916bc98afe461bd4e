@@ -1,0 +1,27 @@
+package com.qa.excelTests;
+
+import java.util.Arrays;
+import java.util.Collection;
+
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
+
+@RunWith(Parameterized.class)
+public class ExcelParameterTest {
+	@Parameters
+	public static Collection<Object[]> rowList() {
+		return Arrays.asList(new Object[][] { { 1, 2, 3 }, { 6, 7, 8 } });
+	}
+
+	private int x;
+	private int y;
+	private int z;
+
+	public ExcelParameterTest(int x, int y, int z) {
+		super();
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+}

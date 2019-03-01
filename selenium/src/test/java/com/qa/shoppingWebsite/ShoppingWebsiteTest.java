@@ -1,0 +1,33 @@
+package com.qa.shoppingWebsite;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ShoppingWebsiteTest {
+	ChromeDriver driver;
+	@Before
+	public void setUp() {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Admin\\Desktop\\chromedriver.exe");
+		driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("http://automationpractice.com/index.php");
+	}
+	@After
+	public void tearDown() {
+		driver.quit();
+	}
+	@Test
+	public void methodTest() throws InterruptedException {
+		WebElement shopping = driver.findElement(By.xpath("//*[@id=\"search_query_top\"]"));
+		shopping.sendKeys("Dress");
+		shopping.submit();
+		shopping = driver.findElement(By.xpath("//*[@id=\"center_column\"]/h1/span[2]"));
+		assertEquals("failed to log in","7 results have been found.",shopping.getText());
+	}
+}

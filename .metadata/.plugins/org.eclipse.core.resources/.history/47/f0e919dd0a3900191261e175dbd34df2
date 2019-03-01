@@ -1,0 +1,18 @@
+package com.qa.blackjack;
+
+import java.util.Random;
+
+public class CardGeneration {
+
+	public int validCheck(int handNumber) {
+		if(handNumber <4 || handNumber>31) {
+			return -1;
+		}
+		return handNumber;
+	}
+
+	private int newCard() {
+		return new Random().nextInt(11)+4;
+	}
+
+}

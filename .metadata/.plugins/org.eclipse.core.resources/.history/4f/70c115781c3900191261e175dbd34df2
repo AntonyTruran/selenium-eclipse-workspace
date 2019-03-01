@@ -1,0 +1,15 @@
+package com.qa.testSuites;
+
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
+
+import com.qa.blackjackTests.DealerTestResults;
+import com.qa.blackjackTests.PlayerResultTests;
+
+
+@RunWith(Suite.class)
+@SuiteClasses({PlayerResultTests.class,DealerTestResults.class})
+public class PlayerDealerSuite {
+
+}

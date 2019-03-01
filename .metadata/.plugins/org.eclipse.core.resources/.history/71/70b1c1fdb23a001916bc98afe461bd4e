@@ -1,0 +1,9 @@
+package com.qa.cucumberPages;
+
+public class Constants {
+	private static final String WEBPAGE ="http://www.practiceselenium.com/welcome.html";
+
+	public String getWebpage() {
+		return WEBPAGE;
+	}
+}

@@ -1,0 +1,21 @@
+package com.qa.cucumberPages;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class BingPage {
+	@FindBy(id = "sb_form_q")
+	private WebElement searchBox;
+	@FindBy(id="sb_form_go")
+	private WebElement searchSubmit;
+	@FindBy(className="\"b_algo\"")
+	private WebElement result;
+	
+	public void search(String arg1) {
+		searchBox.sendKeys(arg1);
+		searchSubmit.click();	
+	}
+	public String result() {
+		return result.getText();
+	}
+}

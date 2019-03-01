@@ -1,0 +1,10 @@
+package com.qa.blackjack;
+
+public class Game {
+
+	public String winner(int i, int j) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

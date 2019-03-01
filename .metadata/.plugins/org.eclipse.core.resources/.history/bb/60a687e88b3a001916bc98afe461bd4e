@@ -1,0 +1,27 @@
+package com.qa.excelTests;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.junit.After;
+import org.junit.Before;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Constants {
+
+	private static final String FILE_LOCATION = "C:\\Users\\Admin\\Downloads\\DemoSiteDDT.xlsx";
+	private static final String DRIVER_LOCATION = "C:\\Users\\Admin\\Desktop\\chromedriver.exe\\";
+	private static final String WEBPAGE = "http://thedemosite.co.uk/";
+	
+	public static String getFileLocation() {
+		return FILE_LOCATION;
+	}
+	public static String getDriverLocation() {
+		return DRIVER_LOCATION;
+	}
+	public static String getWebpage() {
+		return WEBPAGE;
+	}
+}

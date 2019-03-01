@@ -1,0 +1,13 @@
+package com.qa.excelTests;
+
+import org.junit.Before;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ExcelTests {
+	ChromeDriver driver;
+	@Before
+	public void setUp() {
+	System.setProperties("webdriver.chrome.driver","C:\\Users\\Admin\\Desktop\\chromedriver.exe\\");	
+	}
+
+}

@@ -1,0 +1,30 @@
+package com.qa.blackjackTests;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import com.qa.blackjack.CardGeneration;
+import com.qa.blackjack.Game;
+
+import junit.framework.TestCase;
+
+public class mainTests extends TestCase{
+	CardGeneration card;
+	Game game;
+	@Before
+	public void setUp() {
+		card = new CardGeneration();
+		game = new Game();
+	}
+	@Test
+	public void testBust() {
+		assertEquals(-1,card.validCheck(3)||card.validCheck(32));
+		assertEquals(0,card.winner(22,21));
+	}
+	@Test
+	public void testWinner() {
+		assertEquals("player wins",Game.winner(16,12));
+		assertEquals("dealer wins",Game.winner(16,12));
+	}
+
+}

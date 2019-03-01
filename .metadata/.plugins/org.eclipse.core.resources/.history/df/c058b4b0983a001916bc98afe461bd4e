@@ -1,0 +1,68 @@
+package com.qa.excelTests;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collection;
+
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+@RunWith(Parameterized.class)
+public class ExcelParameterTest {
+	Constants constant;
+	private FileInputStream file;
+	private XSSFWorkbook workbook;
+	private XSSFSheet sheet;
+	private ChromeDriver driver;
+
+	@Before
+	public void setUp() throws IOException {
+		constant = new Constants();
+		System.setProperty("webdriver.chrome.driver", constant.getDriverLocation());
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get(constant.getWebpage());
+		file = new FileInputStream(constant.getFileLocation());
+		workbook = new XSSFWorkbook(file);
+	}
+
+	@Parameters
+	public static Collection<Object[]> rowList() {
+		new Object[][] excelCell=[][];
+		
+		return Arrays.asList(excelCell);
+	}
+	// sheet = workbook.getSheetAt(0);
+	// for (int rowNum = 0; rowNum < sheet.getPhysicalNumberOfRows(); rowNum++) {
+	// for (int colNum = 0; colNum <
+	// sheet.getRow(rowNum).getPhysicalNumberOfCells(); colNum++) {
+	// XSSFCell cell = sheet.getRow(rowNum).getCell(colNum);
+	// String userCell = cell.getStringCellValue();
+	// System.out.println(userCell);
+	// }
+	// }
+
+	private int x;
+	private int y;
+	private int z;
+
+	public ExcelParameterTest(int x, int y, int z) {
+		super();
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+
+	@Test
+	public void test() {
+		System.out.println(x + " " + y + " " + z);
+	}
+}
