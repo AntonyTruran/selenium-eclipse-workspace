@@ -1,0 +1,7 @@
+com\qa\jenkinsPages\JenkinsHome.class
+com\qa\constants\Constants.class
+com\qa\jenkinsPages\JenkinsManage.class
+com\qa\jenkinsPages\JenkinsLogin.class
+com\qa\jenkinsPages\NewItem1.class
+com\qa\jenkinsPages\JenkinsUser.class
+com\qa\jenkinsPages\NewItem2.class
